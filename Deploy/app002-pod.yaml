@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+  - name: mypod
+    image: ghcr.io/linuxserver/openssh-server:amd64-latest
+    env:
+    - name: SUDO_ACCESS
+      value: "true"
+    - name: PASSWORD_ACCESS
+      value: "true"
+    - name: USER_PASSWORD
+      value: "dummy"
+    - name: USER_NAME
+      value: "dummy"
+    volumeMounts:
+    - name: foo
+      mountPath: "/etc/foo"
+      readOnly: true
+  volumes:
+  - name: foo
+    configMap:
+      name: configmap-app002

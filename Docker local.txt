@@ -1,0 +1,1 @@
+docker run --rm -itp 2222:2222 --name=ssh --hostname=ssh -e SUDO_ACCESS=true -e PASSWORD_ACCESS=true -e USER_PASSWORD=dummy -e USER_NAME=dummy linuxserver/openssh-server sh
